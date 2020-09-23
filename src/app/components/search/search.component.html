@@ -1,0 +1,21 @@
+<div class="search-wrapper">
+    <div class="search-box-wrapper">
+        <div class="search-box">
+            <input type="text" placeholder="Enter search phrase" #searchPhrase>
+        </div>
+        <div class="search-button">
+            <button mat-button color="primary" class="btn btn-primary"
+                (click)="searchByPhrase(searchPhrase.value)">Search</button>
+        </div>
+    </div>
+    <div class="search-results-wrapper">
+        <div class="loading-wrapper" *ngIf="isLoading">
+            <img src="../../../assets/Loading.gif">
+        </div>
+
+        <ul>
+            <li class="search-result" *ngFor="let result of results">{{result.title}}</li>
+            <li class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</li>
+        </ul>
+    </div>
+</div>
